@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حفل زفاف حسام & بسملة · ٣ أكتوبر ٢٠٢٦</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/Logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- GLOBAL BORDERS -->
+<img src="assets/side.png" class="global-side global-side-l drift-slow" alt="" onerror="this.style.display='none'">
+<img src="assets/side2.png" class="global-side global-side-r drift-slow" alt="" onerror="this.style.display='none'">
+
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
+
+<!-- FX / SPARKS -->
+<div class="sparks" id="sparks"></div>
+
+<!-- AUDIO -->
+<div class="audio-player">
+    <button class="audio-btn pulse" id="audioBtn" onclick="toggleAudio()">
+        <span id="audioIcon">♪</span>
+    </button>
+    <div class="audio-waves" id="audioWaves">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- JS will inject source based on variable here -->
+<audio id="bgMusic" loop></audio>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="assets/frame.jpg" class="hero-bg-img" alt="" onerror="this.style.display='none'">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Candle & Rose Decorations -->
+    <div class="candles-left">
+        <img src="assets/rose.png" class="hero-rose hr-1 drift" alt="rose" onerror="this.style.display='none'">
+        <img src="assets/rose.png" class="hero-rose hr-2 float-subtle" alt="rose" onerror="this.style.display='none'">
+        <div class="cnd"><div class="flm"></div></div>
+        <div class="cnd cnd-s"><div class="flm"></div></div>
+        <div class="cnd cnd-xs"><div class="flm"></div></div>
+        <img src="assets/rose.png" class="hero-rose hr-3 spin-slow" alt="rose" onerror="this.style.display='none'">
+    </div>
+    <div class="candles-right">
+        <img src="assets/rose.png" class="hero-rose hr-4 drift" alt="rose" onerror="this.style.display='none'">
+        <div class="cnd cnd-m"><div class="flm"></div></div>
+        <div class="cnd cnd-s"><div class="flm"></div></div>
+        <img src="assets/rose.png" class="hero-rose hr-5 float-subtle" alt="rose" onerror="this.style.display='none'">
+    </div>
+
+    <div class="hero-content">
+        <img src="assets/Logo.png" class="hero-logo" data-animate="fade-down" data-delay="0" alt="Logo" onerror="this.style.display='none'">
+        <p class="pre-title" data-animate="fade-down" data-delay="150" style="margin-top:15px;">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        
+        <div class="couple-names">
+            <h1 class="groom-name" data-animate="fade-right" data-delay="300">Hossam</h1>
+            <div class="ampersand-wrap" data-animate="blur" data-delay="500">
+                <span class="divider-line glow"></span>
+                <span class="ampersand glow-text">&amp;</span>
+                <span class="divider-line glow"></span>
+            </div>
+            <h1 class="bride-name" data-animate="fade-left" data-delay="300">Basmala</h1>
+        </div>
+
+        <p class="hero-subtitle" data-animate="fade-up" data-delay="700">دامت أرواحكم في أفراحنا متعانقة</p>
+        
+        <div class="date-badge" data-animate="fade-up" data-delay="900">
+            السبت <span class="db-dot bounce-alt">◆</span> <strong class="db-num">3</strong> <span class="db-dot bounce-alt">◆</span> أكتوبر 2026
+        </div>
+    </div>
+
+    <img src="assets/upper.png" class="gold-orn gold-top" alt="" onerror="this.style.display='none'">
+    <img src="assets/down.png" class="gold-orn gold-bot drift" alt="" onerror="this.style.display='none'">
+</section>
+
+<!-- CD -->
+<section class="section cd-section">
+    <div class="sec-inner reveal">
+        <div class="rose-icon spin-slow">✿</div>
+        <h2 class="sec-title text-glow">لحظات تفصلنا</h2>
+        <div class="cd-grid">
+            <div class="cd-item tilt"><div class="cd-no" id="days">00</div><div class="cd-tx">يوم</div></div>
+            <div class="cd-item tilt"><div class="cd-no" id="hours">00</div><div class="cd-tx">ساعة</div></div>
+            <div class="cd-item tilt"><div class="cd-no" id="minutes">00</div><div class="cd-tx">دقيقة</div></div>
+            <div class="cd-item tilt"><div class="cd-no" id="seconds">00</div><div class="cd-tx">ثانية</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CANVAS -->
+<section class="section canvas-section">
+    <div class="sec-inner reveal">
+        <h2 class="sec-title text-glow" style="color:var(--gold)">قصة حب تبدأ هنا</h2>
+        <p class="sec-subtitle shimmer">في ليلة تتلألأ فيها النجوم</p>
+        
+        <div class="canvas-mount float-subtle">
+            <canvas id="coupleCanvas"></canvas>
+            <div class="rose-overlay rose-bl spin-slow">✿</div>
+            <div class="rose-overlay rose-tr spin-slow">✿</div>
+        </div>
+    </div>
+</section>
+
+<!-- INFO -->
+<section class="section info-section">
+    <div class="sec-inner">
+        <h2 class="sec-title reveal text-glow">تفاصيل الاحتفال</h2>
+        <div class="timing-band reveal-up">
+            <div class="tb-box">
+                <span class="tb-lbl">البداية</span>
+                <span class="tb-time">٧:٠٠ م</span>
+            </div>
+            <div class="tb-sep spin-slow">◈</div>
+            <div class="tb-box">
+                <span class="tb-lbl">الختام</span>
+                <span class="tb-time">١٠:٠٠ م</span>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card reveal-up zoom-hover" style="--d:0s">
+                <img src="assets/location.png" class="ic-img pulse" alt="location" onerror="this.style.display='none'">
+                <h3>المكان</h3>
+                <p>قصر سندريلا للأفراح<br>طريق المريوطية، بعد فندق كتاركت</p>
+            </div>
+            <div class="info-card reveal-up zoom-hover" style="--d:0.1s">
+                <img src="assets/camera.png" class="ic-img pulse" alt="camera" onerror="this.style.display='none'">
+                <h3>التصوير</h3>
+                <p>حضوركم مبكراً يسعدنا<br>لمشاركتنا أجمل اللقطات التذكارية</p>
+            </div>
+            <div class="info-card reveal-up zoom-hover" style="--d:0.2s">
+                <img src="assets/parking.png" class="ic-img pulse" alt="parking" onerror="this.style.display='none'">
+                <h3>السيارات</h3>
+                <p>يتوفر جراج خاص بالقاعة<br>لضمان راحة ضيوفنا الكرام</p>
+            </div>
+        </div>
+
+        <div class="quran-quote reveal-up border-glow">
+            "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+            <span>سورة الروم ٢١</span>
+        </div>
+    </div>
+</section>
+
+<!-- BANNER -->
+<section class="banner-section">
+    <img src="assets/Banner.jpg" class="site-banner reveal" alt="Banner" onerror="this.style.display='none'">
+</section>
+
+<!-- MAP -->
+<section class="section map-section">
+    <div class="sec-inner reveal">
+        <h2 class="sec-title text-glow">خريطة القاعة</h2>
+        <div class="map-wrap float-subtle">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.728337349406!2d31.179530124778026!3d29.958491774966962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584914ece562b9%3A0x8fdcafa9aeec49d7!2z2YLYtdixINiz2YbYr9ix2YrZhNinINmE2YTYo9mB2LHYp9itINio2KfZhNmF2LHZitmI2LfZitmH!5e0!3m2!1sar!2seg!4v1788038303721!5m2!1sar!2seg" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <!-- Update map link depending on new iframe if you want -->
+        <a href="https://maps.google.com/?q=29.958491774966962,31.179530124778026" target="_blank" class="gmap-btn pulse-border">فتح الخريطة ↗</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="cnd cnd-m" style="margin:0 auto 20px;"><div class="flm"></div></div>
+    <div class="f-names shimmer">Hossam ♥ Basmala</div>
+    <div class="f-date">٣ أكتوبر ٢٠٢٦</div>
+</footer>
+
+<script src="index.js"></script>
+</body>
+</html>

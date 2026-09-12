@@ -6,7 +6,7 @@
  * يمكنك تغيير مسار أو رابط الأغنية من هنا بسهولة
  * ضع مسار الملف المحلي أو رابط الأغنية المباشر بين علامتي التنصيص
  */
-const AUDIO_SRC = "sound.mp3";
+const AUDIO_SRC = "sound1.mp3";
 
 /* ── AUDIO ── */
 const audio = document.getElementById("bgMusic");
@@ -23,7 +23,7 @@ if (audio) {
 // Attempt to play on scroll specifically
 function checkScrollAndPlay() {
   if (!playing && audio && window.scrollY > 50) {
-    playing = true; 
+    playing = true;
     audio.volume = 0.5;
     audio
       .play()
@@ -35,28 +35,36 @@ function checkScrollAndPlay() {
         document.removeEventListener("touchstart", forcePlay);
       })
       .catch(() => {
-        playing = false; 
-      }); 
+        playing = false;
+      });
   }
 }
 
 function forcePlay() {
   if (!playing && audio) {
-    playing = true; 
+    playing = true;
     audio.volume = 0.5;
-    audio.play().then(() => {
+    audio
+      .play()
+      .then(() => {
         audioWaves.style.opacity = "1";
         audioIcon.style.display = "none";
         window.removeEventListener("scroll", checkScrollAndPlay);
         document.removeEventListener("click", forcePlay);
         document.removeEventListener("touchstart", forcePlay);
-    }).catch(() => { playing = false; });
+      })
+      .catch(() => {
+        playing = false;
+      });
   }
 }
 
 window.addEventListener("scroll", checkScrollAndPlay, { passive: true });
 document.addEventListener("click", forcePlay, { once: true, passive: true });
-document.addEventListener("touchstart", forcePlay, { once: true, passive: true });
+document.addEventListener("touchstart", forcePlay, {
+  once: true,
+  passive: true,
+});
 
 function toggleAudio() {
   if (playing) {
@@ -137,7 +145,7 @@ function initReveal() {
 
 /* ── COUNTDOWN ──
  * التاريخ: 3 أكتوبر 2026
- * البداية: الساعة 7 مساءً
+ * البداية: ؤ 7 مساءً
  */
 const WEDDate = new Date("2026-10-03T19:00:00").getTime();
 

@@ -525,10 +525,179 @@ body {
 .f-names { font-family: 'Cormorant Garamond', serif; font-size:2rem; color:var(--gold); margin-bottom:10px; }
 .f-date { font-size:0.8rem; letter-spacing:2px; color:var(--text); }
 
-/* RESPONSIVE */
+/* ══════════════════════════════════════════
+   RESPONSIVE SYSTEM
+══════════════════════════════════════════ */
+
+/* ── Tablet: ≤ 900px ── */
+@media (max-width: 900px) {
+    /* Hide botanical side borders on smaller screens */
+    .botanical-side { display: none; }
+
+    /* Invite card slightly less padding */
+    .invite-card { padding: 50px 35px; }
+
+    /* Rose corners closer to card */
+    .invite-rose-corner { width: 150px; }
+    .invite-rose-tl { top: -40px; right: -40px; }
+    .invite-rose-br { bottom: -40px; left: -40px; }
+
+    /* Section roses hide on tablet */
+    .sec-rose { display: none; }
+
+    /* Info cards go 2 columns */
+    .info-cards { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .info-card { width: auto !important; }
+}
+
+/* ── Small Tablet / Large Mobile: ≤ 768px ── */
+@media (max-width: 768px) {
+    /* Hero */
+    .hero { padding: 80px 16px; }
+    .hero-logo { width: 110px; height: 110px; }
+    .pre-title { font-size: 0.9rem; letter-spacing: 2px; }
+    .hero-subtitle { font-size: 0.95rem; letter-spacing: 1px; }
+    .date-badge { padding: 12px 22px; gap: 10px; font-size: 0.82rem; }
+    .db-num { font-size: 1.6rem; }
+
+    /* Candles – scale down and nudge inward */
+    .candles-left { left: 2%; transform: scale(0.75); transform-origin: bottom left; }
+    .candles-right { right: 2%; transform: scale(0.75); transform-origin: bottom right; }
+
+    /* Gold ornaments smaller */
+    .gold-orn { width: 180px; }
+
+    /* Sections padding */
+    .section { padding: 70px 16px; }
+    .sec-title { font-size: 2.3rem; }
+
+    /* Invite card */
+    .invite-card { padding: 40px 24px; }
+    .invite-rose-corner { width: 120px; }
+    .invite-rose-tl { top: -30px; right: -25px; }
+    .invite-rose-br { bottom: -30px; left: -25px; }
+    .invite-detail-item { min-width: 160px; padding: 16px 20px; }
+
+    /* Countdown items */
+    .cd-item { padding: 15px 12px; min-width: 72px; }
+    .cd-no { font-size: 2.4rem; }
+
+    /* Timing band */
+    .timing-band { padding: 14px 24px; max-width: 380px; }
+
+    /* Info cards → 1 column */
+    .info-cards { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .info-card { width: auto !important; }
+
+    /* Banner */
+    .site-banner { height: 240px; }
+
+    /* Map iframe */
+    .map-wrap iframe { height: 260px; }
+
+    /* Quran quote */
+    .quran-quote { font-size: 0.95rem; padding: 22px; }
+
+    /* Footer */
+    .f-names { font-size: 1.6rem; }
+}
+
+/* ── Mobile: ≤ 600px ── */
 @media (max-width: 600px) {
-    .candles-left, .candles-right { transform: scale(0.7); }
-    .hero-content { padding-top: 50px; }
-    .timing-band { flex-direction:column; gap:10px; border-radius:15px; }
-    .tb-sep { transform:rotate(90deg); }
+    /* Hero */
+    .hero { padding: 70px 14px 60px; }
+    .hero-logo { width: 90px; height: 90px; }
+    .pre-title { font-size: 0.8rem; letter-spacing: 1px; }
+    .ampersand { font-size: 2rem; }
+    .divider-line { width: 40px; }
+    .hero-subtitle { font-size: 0.88rem; margin-top: 14px; }
+    .date-badge {
+        padding: 10px 18px; gap: 8px; font-size: 0.78rem;
+        flex-wrap: wrap; justify-content: center; border-radius: 16px;
+    }
+    .db-num { font-size: 1.4rem; }
+
+    /* Candles: hide on small phones, too cluttered */
+    .candles-left, .candles-right { display: none; }
+
+    /* Gold ornaments */
+    .gold-orn { width: 140px; }
+
+    /* Sections */
+    .section { padding: 55px 14px; }
+    .sec-title { font-size: 2rem; }
+    .sec-subtitle { font-size: 0.82rem; }
+
+    /* Invite card */
+    .invite-card {
+        padding: 32px 18px;
+        border-radius: 14px;
+    }
+    .invite-rose-corner { display: none; }
+    .invite-basmala { letter-spacing: 1px; }
+    .invite-names { margin: 18px 0; }
+    .invite-details { gap: 14px; }
+    .invite-detail-item {
+        min-width: 0; width: 100%;
+        padding: 14px 16px;
+    }
+    .invite-sep { display: none; }
+    .invite-ayah { max-width: 100%; }
+    .invite-floral-divider { height: 55px; }
+
+    /* Countdown */
+    .cd-grid { gap: 10px; }
+    .cd-item { padding: 12px 10px; min-width: 62px; }
+    .cd-no { font-size: 2rem; }
+    .cd-tx { font-size: 0.7rem; }
+
+    /* Timing band */
+    .timing-band {
+        flex-direction: column; gap: 10px;
+        border-radius: 14px; padding: 18px 20px;
+        max-width: 100%;
+    }
+    .tb-sep { transform: rotate(90deg); }
+    .tb-time { font-size: 1.5rem; }
+
+    /* Info cards */
+    .info-cards { grid-template-columns: 1fr; max-width: 100%; }
+    .info-card { width: auto !important; padding: 24px 18px; }
+
+    /* Quran quote */
+    .quran-quote { font-size: 0.88rem; padding: 18px 16px; line-height: 1.9; }
+
+    /* Banner */
+    .site-banner { height: 180px; border-radius: 10px; }
+    .banner-section { padding: 24px 14px; }
+
+    /* Map */
+    .map-wrap iframe { height: 220px; }
+    .gmap-btn { padding: 10px 24px; font-size: 0.85rem; }
+
+    /* Floral separator */
+    .floral-sep-img { height: 70px; }
+
+    /* Footer */
+    .footer { padding: 36px 14px; }
+    .f-names { font-size: 1.4rem; }
+    .f-date { font-size: 0.75rem; }
+
+    /* Canvas */
+    .canvas-mount { border-radius: 10px; }
+
+    /* Audio player – move slightly for small screens */
+    .audio-player { bottom: 14px; left: 14px; }
+}
+
+/* ── Extra Small Mobile: ≤ 400px ── */
+@media (max-width: 400px) {
+    .hero-logo { width: 76px; height: 76px; }
+    .ampersand { font-size: 1.7rem; }
+    .divider-line { width: 28px; }
+    .sec-title { font-size: 1.7rem; }
+    .cd-item { min-width: 54px; padding: 10px 8px; }
+    .cd-no { font-size: 1.7rem; }
+    .invite-card { padding: 26px 14px; }
+    .date-badge { padding: 8px 14px; font-size: 0.74rem; }
 }
